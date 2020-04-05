@@ -19,8 +19,8 @@ import java.util.ArrayList;
 public class PaintView extends View {
 
     public static int BRUSH_SIZE = 20;
-    public static final int DEFAULT_COLOR = Color.RED;
-    public static final int DEFAULT_BG_COLOR = Color.WHITE;
+    public static int DEFAULT_COLOR = Color.RED;
+    public static int DEFAULT_BG_COLOR = Color.WHITE; //Color.WHITE or Color.TRANSPARENT should also be final (?)
     private static final float TOUCH_TOLERANCE = 4;
     private float mX, mY;
     private Path mPath;
@@ -84,10 +84,26 @@ public class PaintView extends View {
     }
 
     public void clear() {
-        backgroundColor = DEFAULT_BG_COLOR;
+//        backgroundColor = DEFAULT_BG_COLOR;
         paths.clear();
         normal();
         invalidate();
+    }
+
+    public void setStrokeWidth(int width)
+    {
+        strokeWidth = width;
+    }
+
+    public void setColor(int color)
+    {
+        currentColor = color;
+    }
+
+    public void setBackgroundColor(int color)
+    {
+        backgroundColor = color;
+        DEFAULT_BG_COLOR = color;
     }
 
     @Override

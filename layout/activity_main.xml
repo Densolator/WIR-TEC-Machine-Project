@@ -6,8 +6,78 @@
     android:layout_height="match_parent"
     tools:context="com.example.paint.MainActivity">
 
-    <com.example.paint.PaintView
-        android:id="@+id/paintView"
+
+    <LinearLayout
+        android:id="@+id/colorContainer"
+        android:layout_width="25dp"
+        android:layout_height="695dp"
+        android:layout_alignParentRight="true"
+        android:background="#00FF0000"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/redButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:onClick="setColorRed"/>
+
+        <Button
+            android:id="@+id/blueButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:onClick="setColorBlue"/>
+        <Button
+            android:id="@+id/greenButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:onClick="setColorGreen"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Draw your filter here!"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/paintParent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:padding="35dp"
+        android:orientation="vertical">
+
+
+<!--            android:layout_alignBottom="@id/paintView"-->
+
+        <com.example.paint.PaintView
+            android:id="@+id/paintView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:progress="40"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="76dp"
+        android:layout_height="36dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/paintParent"
+        android:onClick="saveDrawing"
+        android:text="SAVE" />
+
+
 </RelativeLayout>
